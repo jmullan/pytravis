@@ -10,16 +10,19 @@ __version__ = '0.0.1'
 
 
 def run_scripts(travis, stage):
+    """
+    Given an travis configuration and a stage, run its scripts if any
+    """
     stage_scripts = travis.get(stage, [])
     success = True
     for script in stage_scripts:
         print script
-        process = subprocess.Popen(
+        script_process = subprocess.Popen(
             shlex.split(script),
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE)
-        out, err = process.communicate()
-        returncode = int(process.returncode)
+        out, err = script_process.communicate()
+        returncode = int(script_process.returncode)
         if returncode > 0:
             sys.stdout.write(out)
             sys.stderr.write(err)
@@ -28,6 +31,9 @@ def run_scripts(travis, stage):
 
 
 def process(args):
+    """
+    Do travis stuff
+    """
     action_stages = {
         'install': [
             'before_install',
@@ -42,8 +48,8 @@ def process(args):
     }
 
     travis = None
-    with open('.travis.yml', 'r') as f:
-        travis = yaml.load(f)
+    with open('.travis.yml', 'r') as yaml_file:
+        travis = yaml.load(yaml_file)
 
     # This would be for testing a matrix of environment variables?
     # envs = travis.get('env', [])

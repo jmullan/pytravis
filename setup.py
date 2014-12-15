@@ -1,38 +1,27 @@
-# pytravis <http://github.com/jmullan/pytravis>
-
-# This file is part of pytravis.
-#
-# pytravis is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# pytravis is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with pytravis.  If not, see <http://www.gnu.org/licenses/>.
+"""
+Set up pytravis for your environment
+pytravis <http://github.com/jmullan/pytravis>
+"""
 
 from setuptools import setup
 import pytravis.pytravis
 
-setup(name="pytravis",
-      version=pytravis.pytravis.__version__,
-      description="Extract stuff from Digital Photo Professional into XMP",
-      license="GPLv3+",
-      author="Jesse Mullan",
-      author_email="jmullan@visi.com",
-      url="http://github.com/jmullan/pytravis",
-      classifiers=[
-          "Development Status :: 3 - Alpha",
-          "Intended Audience :: Developers",
-          "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-          "Programming Language :: Python :: 2.6",
-          "Programming Language :: Python :: 2.7",
-          "Programming Language :: Python :: 3"],
-      packages=['pytravis'],
-      py_modules=["pytravis"],
-      scripts=['bin/pytravis']
-)
+setup(
+    name="pytravis",
+    version=pytravis.pytravis.__version__,
+    description="Extract stuff from Digital Photo Professional into XMP",
+    license="GPLv3+",
+    author="Jesse Mullan",
+    author_email="jmullan@visi.com",
+    url="http://github.com/jmullan/pytravis",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: "
+        "GNU General Public License v3 or later (GPLv3+)",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3"],
+    packages=['pytravis'],
+    py_modules=["pytravis"],
+    scripts=['bin/pytravis'])

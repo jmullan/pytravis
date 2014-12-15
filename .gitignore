@@ -1,0 +1,3 @@
+*.pyc
+*~
+pytravis.egg-info
