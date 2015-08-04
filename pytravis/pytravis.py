@@ -1,7 +1,6 @@
 """
 Run the .travis.yml file
 """
-import shlex
 import yaml
 import subprocess
 import sys
@@ -16,11 +15,11 @@ def run_scripts(travis, stage):
     stage_scripts = travis.get(stage, [])
     success = True
     for script in stage_scripts:
-        print script
         script_process = subprocess.Popen(
-            shlex.split(script),
+            script,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
+            stderr=subprocess.PIPE,
+            shell=True)
         out, err = script_process.communicate()
         returncode = int(script_process.returncode)
         if returncode > 0:
